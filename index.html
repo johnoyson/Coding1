@@ -5,9 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <link rel="stylesheet" type="text/css" href="style.css">
   <title>Shopping List</title>
@@ -22,28 +20,40 @@
     </header>
 
     <form id="item-form">
-
-
       <div class="form-control">
-        <input type="text" name="item" id="item-input" class="item-form" placeholder="Enter item">
-        </input>
+        <input type="text" class="form-input" id="item-input" name="item" placeholder="Enter Item">
       </div>
-
-      <div class="item-form">
-        <button type="submit">Add item</button>
+      <div class="form-control">
+        <button type="submit" class="btn">
+          <i class="fa-solid fa-plus"></i> Add Item
+        </button>
       </div>
     </form>
 
-    <div>
-      <input type="text"></input>
+    <div class="filter">
+      <input type="text" class= "form-input-filter" placeholder="Filter Items"></input>
     </div>
 
 
     <ul id="item-list" class="items">
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
+      <li> Apples
+        <button class="remove-item btn-link text-red">
+          <i class="fa-solid fa-xmark"></i>
+          
+        </button></li>
+      <li> Apples
+        <button class="remove-item btn-link text-red">
+          <i class="fa-solid fa-xmark"></i>
+        </button></li>
+      <li> Oranges 
+        <button class="remove-item btn-link text-red">
+        <i class="fa-solid fa-xmark"></i>
+      </button></li>
+      <li> Grapes
+        <button class="remove-item btn-link text-red">
+        <i class="fa-solid fa-xmark"></i>
+      </button></li>
+     
     </ul>
 
     <button id="clear" class="btn-clear">Clear All</button>
@@ -52,3 +62,4 @@
 </body>
 
 </html>
+
