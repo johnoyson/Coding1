@@ -4,6 +4,12 @@ const itemList = document.getElementById('item-list');
 const clearBtn = document.getElementById('clear');
 const itemFilter = document.getElementById('filter');
 
+function displayItems() {
+  const itemsFromStorage = getItemsFromStorage();
+  itemsFromStorage.forEach((item) => addItemToDom(item));
+  checkUi();
+}
+
 function onAddItemSubmit(e) {
   e.preventDefault();
 
@@ -51,12 +57,7 @@ function createIcon(classes) {
 }
 
 function addItemToStorage(item) {
-  let itemsFromStorage;
-  if (localStorage.getItem('items') === null) {
-    itemsFromStorage = [];
-  } else {
-    itemsFromStorage = JSON.parse(localStorage.getItem('items'));
-  }
+  let itemsFromStorage = getItemsFromStorage();
 
   //Add new item to array
   itemsFromStorage.push(item);
@@ -71,17 +72,23 @@ function getItemsFromStorage() {
   } else {
     itemsFromStorage = JSON.parse(localStorage.getItem('items'));
   }
+  return itemsFromStorage;
 }
 
+function onClickItem(e) {
+  if (e.target.parentElement.classList.contains('remove-item')) {
+    removeItem(e.target.parentElement.parentElement);
+  }
+}
 // Remove Item
 function removeItem(e) {
-  if (e.target.parentElement.classList.contains('remove-item')) {
-    if (confirm('Are you sure?')) {
-      e.target.parentElement.parentElement.remove();
-
-      checkUi();
-    }
-  }
+  console.log(item);
+  // if (e.target.parentElement.classList.contains('remove-item')) {
+  //   if (confirm('Are you sure?')) {
+  //     e.target.parentElement.parentElement.remove();
+  //     checkUi();
+  //   }
+  // }
 }
 
 function clearItems() {
@@ -118,10 +125,16 @@ function checkUi() {
   }
 }
 
-// Event Listeners
-itemForm.addEventListener('submit', onAddItemSubmit);
-itemList.addEventListener('click', removeItem);
-clearBtn.addEventListener('click', clearItems);
-itemFilter.addEventListener('input', filterItems);
+//Initialize app
+function init() {
+  // Event Listeners
+  itemForm.addEventListener('submit', onAddItemSubmit);
+  itemList.addEventListener('click', onClickItem);
+  clearBtn.addEventListener('click', clearItems);
+  itemFilter.addEventListener('input', filterItems);
+  document.addEventListener('DOMContentLoaded', displayItems);
 
-checkUi();
+  checkUi();
+}
+
+init();
