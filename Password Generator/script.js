@@ -83,5 +83,3 @@ function getRandomSymbol() {
   const symbols = '!@#$%^&*()_+-=?,.<>/?';
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
-
-// console.log(getRandomSymbol());
