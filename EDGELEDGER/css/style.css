@@ -82,7 +82,7 @@ img { width: 100%;}
 
 .hero.blog{
     background: url(/image_resources/home/blog.jpg) no-repeat center center/cover;
-    height: 30;
+    height: 30px;
 }
 
 .hero .content{
